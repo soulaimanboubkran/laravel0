@@ -1,0 +1,1 @@
+<p>Résultat : {{ $result }}</p>

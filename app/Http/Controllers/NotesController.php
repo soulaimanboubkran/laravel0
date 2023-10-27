@@ -1,17 +1,16 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class NotesController extends Controller
 {
-   
-    
-  
-    public function statistiques()
+    private $notes;
+
+    public function __construct()
     {
-        // Dummy data for the exercise
-        $notes = [
+        // Initialize the $notes array in the constructor
+        $this->notes = [
             "Mohamed Alaoui" => "16",
             "Ahmed Bennani" => "14",
             "Rachida Kich" => "6",
@@ -24,20 +23,28 @@ class NotesController extends Controller
             "Sami Tazi" => "7",
             "Noura Tazi" => "14",
         ];
-     //send to statistiques a 'note' that takes $notes values !!!!
-        return view('statistiques', ['notes' => $notes]);
-    } 
-    public function getColorClass($note)
-    {
-        if ($note > 10) {
-            return 'green';
-        } elseif ($note >= 8 && $note <= 10) {
-            return 'orange';
-        } else {
-            return 'red';
-        }
     }
-    
-    
-}
 
+    public function statistiques()
+    {
+        // You can now access $this->notes in this method
+        return view('statistiques', ['notes' => $this->notes]);
+    }
+
+    public function searchAndShow(Request $request)
+    {
+        // Get the search term from the request
+        $searchTerm = $request->input('search');
+
+        // Perform the search logic using $this->notes
+        $filteredNotes = [];
+
+        foreach ($this->notes as $nom => $note) {
+            if (stristr($nom, $searchTerm) !== false) {
+                $filteredNotes[$nom] = $note;
+            }
+        }
+
+        return view('statistiques', ['notes' => $filteredNotes]);
+    }
+}

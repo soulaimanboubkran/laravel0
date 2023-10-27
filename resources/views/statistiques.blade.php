@@ -11,6 +11,12 @@
 </head>
 <body>
     <h1>Statistiques</h1>
+    <form method="GET" action="{{ route('notes.show') }}">
+        <label for="search">Rechercher un élève par nom partiel :</label>
+        <input type="text" name="search" id="search" value="{{ old('search') }}">
+        <button type="submit">Rechercher</button>
+    </form>
+    
     <table>
         <thead>
             <tr>

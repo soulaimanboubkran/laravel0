@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/statistiques', [NotesController::class, 'statistiques']);
+Route::get('/notes/show', [NotesController::class, 'searchAndShow'])->name('notes.show');

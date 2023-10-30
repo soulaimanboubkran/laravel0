@@ -18,16 +18,22 @@
     <body class="antialiased">
     <div class="row">
             <x-article
+            img='https://assets-global.website-files.com/5ef5480befd392489dacf544/5f9f5e5943de7e69a1339242_5f44a7398c0cdf460857e744_img-image-p-1080.jpeg'
                 h1="Example Article"
                 desc="This is an example article with a header, description, and a button."
                 btn="Read More"
             />
             <x-article
+
+            img='https://assets-global.website-files.com/5ef5480befd392489dacf544/5f9f5e5943de7e69a1339242_5f44a7398c0cdf460857e744_img-image-p-1080.jpeg'
+
                 h1="Example Article"
                 desc="This is an example article with a header, description, and a button."
                btn="Read More"
             />
             <x-article
+            img='https://assets-global.website-files.com/5ef5480befd392489dacf544/5f9f5e5943de7e69a1339242_5f44a7398c0cdf460857e744_img-image-p-1080.jpeg'
+
                 h1="Example Article"
                desc="This is an example article with a header, description, and a button."
                 btn="Read More"

@@ -11,6 +11,8 @@
     </style>
 </head>
 @section('content')
+@section('bg')
+@endsection
 <body>
     <h1>Statistiques</h1>
     <form method="GET" action="{{ route('notes.show') }}">

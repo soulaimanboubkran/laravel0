@@ -8,7 +8,9 @@
     @include('layouts.header')
     
     <div class="content">
+        @section('bg')
         <img src="https://assets-global.website-files.com/5ef5480befd392489dacf544/5f9f5e5943de7e69a1339242_5f44a7398c0cdf460857e744_img-image-p-1080.jpeg" alt="">
+        @show
         @yield('content') 
     </div>
     @include('layouts.footer') 

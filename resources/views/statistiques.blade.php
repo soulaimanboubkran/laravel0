@@ -1,3 +1,4 @@
+@extends('layouts.master')
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
         .red { background-color: red; }
     </style>
 </head>
+@section('content')
 <body>
     <h1>Statistiques</h1>
     <form method="GET" action="{{ route('notes.show') }}">
@@ -17,31 +19,36 @@
         <button type="submit">Rechercher</button>
     </form>
     
-    <table>
-        <thead>
-            <tr>
-                <th>Nom de l'étudiant</th>
-                <th>Note</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($notes as $nom => $note)
-                @php
-                    $colorClass = '';
-                    if ($note > 10) {
-                        $colorClass = 'green';
-                    } elseif ($note >= 8 && $note <= 10) {
-                        $colorClass = 'orange';
-                    } else {
-                        $colorClass = 'red';
-                    }
-                @endphp
-                <tr class="{{ $colorClass }}">
-                    <td>{{ $nom }}</td>
-                    <td>{{ $note }}</td>
+    @if (count($notes) > 0)
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom de l'étudiant</th>
+                    <th>Note</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($notes as $nom => $note)
+                    @php
+                        $colorClass = '';
+                        if ($note > 10) {
+                            $colorClass = 'green';
+                        } elseif ($note >= 8 && $note <= 10) {
+                            $colorClass = 'orange';
+                        } else {
+                            $colorClass = 'red';
+                        }
+                    @endphp
+                    <tr class="{{ $colorClass }}">
+                        <td>{{ $nom }}</td>
+                        <td>{{ $note }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>Aucun résultat trouvé.</p>
+    @endif
 </body>
+@endsection
 </html>

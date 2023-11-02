@@ -3,9 +3,15 @@
 use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-})->name('home');
+})->name('welcome');
+
+
+Route::get('/', function () {
+    return view('home');
+});
+
 
 Route::get('/contact', function () {
     return view('contacts');

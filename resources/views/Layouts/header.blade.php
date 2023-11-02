@@ -65,7 +65,7 @@ body, h1, h2, p {
         <nav class="navbar">
             <div class="logo">Your Logo</div>
             <ul class="nav-links">
-                <li><a href="{{route('home')}}">Home</a></li>
+                <li><a href="{{route('welcome')}}">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="{{route('statiques')}}">Results</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>

@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('person',[ApiController::class,'index']);
 Route::post('person',[ApiController::class,'upload']);
+Route::put('person/edit/{id}',[ApiController::class,'edit']);

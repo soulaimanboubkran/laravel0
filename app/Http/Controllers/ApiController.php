@@ -71,4 +71,15 @@ class ApiController extends Controller
             return response()->json($data,200);
         }
     }
+
+    public function delete($id){
+        $person = Api1::find($id);
+        $person->delete();
+
+        $data=[
+            "status"=>200,
+            "message"=>"Data has been deleted successfully"
+        ];
+        return response()->json($data,200);
+    }
 }

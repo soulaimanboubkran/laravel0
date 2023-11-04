@@ -28,7 +28,9 @@ class ApiController extends Controller
             ];
             return response()->json($data,422);
         }else{
+             
             $person =new Api1;
+
             $person->name=$request->name;
             $person->email=$request->email;
             $person->phone=$request->phone;

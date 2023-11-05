@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +25,8 @@ Route::get('person',[ApiController::class,'index']);
 Route::post('person',[ApiController::class,'upload']);
 Route::put('person/edit/{id}',[ApiController::class,'edit']);
 Route::delete('person/delete/{id}',[ApiController::class,'delete']);
+
+
+Route::apiResource('tasks', TaskController::class)->only([
+    'index','show','store','update'
+]);

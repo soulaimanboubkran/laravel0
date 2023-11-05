@@ -28,5 +28,5 @@ Route::delete('person/delete/{id}',[ApiController::class,'delete']);
 
 
 Route::apiResource('tasks', TaskController::class)->only([
-    'index','show','store','update'
+    'index','show','store','update','destroy'
 ]);

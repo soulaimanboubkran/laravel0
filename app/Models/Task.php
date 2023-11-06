@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Task extends Model
 {
@@ -17,7 +18,9 @@ class Task extends Model
     protected $casts = [ 
       "is_done"=>"boolean"
     ];
-    protected $hidden = [
-        "updated_at",
-    ];
+
+    //creator. The function is expected to return an object of type BelongsTo.
+    public function creator():BelongsTo{
+        return $this->belongsTo(User::class,"creator_id");
+    }
 }

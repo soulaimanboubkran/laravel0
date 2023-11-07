@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+Route::post('login',[AuthController::class,'login']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -27,6 +28,8 @@ Route::put('person/edit/{id}',[ApiController::class,'edit']);
 Route::delete('person/delete/{id}',[ApiController::class,'delete']);
 
 
-Route::apiResource('tasks', TaskController::class)->only([
-    'index','show','store','update','destroy'
-]);
+
+Route::middleware('auth:sanctum')->group(function () {
+Route::apiResource('tasks', TaskController::class);
+
+});

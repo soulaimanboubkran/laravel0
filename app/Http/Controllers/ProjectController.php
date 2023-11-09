@@ -12,11 +12,15 @@ use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     //
+    public function show(Request $request, Project $project){
+        return new  ProjectRecource($project);
+    }
     public function store(StoreProjectRequest $request){
         $validated = $request->validated();
         $project = Auth::user()->projects()->create($validated);
         return new ProjectRecource($project);
     }
+
     public function update(UpdateProjectRequest $request,Project $project){
         $validated = $request->validated();
         $project->update($validated);

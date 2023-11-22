@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AnnoncesController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProjectController;
@@ -18,8 +18,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('login',[AuthController::class,'login']);
-Route::post('register',[AuthController::class,'register']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -32,3 +31,6 @@ Route::apiResource('tasks', TaskController::class);
 Route::apiResource('projects', ProjectController::class);
 
 });
+
+Route::apiResource('annonces', AnnoncesController::class);
+
